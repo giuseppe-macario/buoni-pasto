@@ -1,3 +1,5 @@
+from __future__ import annotations # Non serve per Python 3.10+
+
 import re
 import sys
 import os
