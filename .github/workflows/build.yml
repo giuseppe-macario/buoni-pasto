@@ -24,11 +24,11 @@ jobs:
         run: |
           mkdir -p dist
           fyne package \
-            -os darwin \
-            -appID "men.giuseppemacario.buoni-pasto" \
-            -name "Buoni Pasto" \
-            -release \
-            -icon Icon.png
+            --target darwin \
+            --app-id "men.giuseppemacario.buoni-pasto" \
+            --name "Buoni Pasto" \
+            --release \
+            --icon Icon.png
           mv "Buoni Pasto.app" dist/
 
       - name: Zip macOS .app
@@ -62,7 +62,7 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force dist | Out-Null
-          fyne package -os windows -name "Buoni Pasto" -release -icon Icon.png
+          fyne package --target windows --name "Buoni Pasto" --release --icon Icon.png
           Move-Item "Buoni Pasto.exe" "dist\buoni-pasto.exe" -Force
 
       - name: Upload artifact (Windows)
