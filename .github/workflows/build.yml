@@ -62,7 +62,12 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force dist | Out-Null
-          fyne package --target windows --name "Buoni Pasto" --release --icon Icon.png
+          fyne package `
+            --target windows `
+            --app-id "men.giuseppemacario.buoni-pasto" `
+            --name "Buoni Pasto" `
+            --release `
+            --icon Icon.png
           Move-Item "Buoni Pasto.exe" "dist\buoni-pasto.exe" -Force
 
       - name: Upload artifact (Windows)
